@@ -765,7 +765,7 @@
           I'm an Outreachy 2026 applicant working on the <strong style="color:var(--text)">Fedora Project</strong> — 
           <strong style="color:var(--green)">"Develop a SLM/LLM using RamaLama RAG based off Fedora RPM packaging guidelines"</strong>.
           I am an AI/ML engineer and have built several RAG systems end-to-end.
-          This portfolio documents my contributions and progress during the application phase.
+          This portfolio documents my contributions and progress during the contribution phase.
         </p>
 
         <!-- Social icons -->
@@ -821,7 +821,7 @@
           <div style="display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
             <div>
               <h3 style="font-size:1.25rem; font-weight:700; color:var(--text); margin-bottom:0.4rem;">Develop a SLM/LLM using RamaLama RAG based off Fedora RPM packaging guidelines</h3>
-              <p style="color:var(--muted); font-size:0.9rem; line-height:1.7; max-width:660px;">A Retrieval-Augmented Generation system that ingests Fedora RPM packaging guidelines and serves them through a locally-run small language model via RamaLama — making packaging knowledge accessible through natural language queries.</p>
+              <p style="color:var(--muted); font-size:0.9rem; line-height:1.7; max-width:660px;">A Retrieval-Augmented Generation system that ingests Fedora RPM packaging guidelines and serves them through a locally-run small language model via RamaLama.</p>
             </div>
             <a href="https://docs.google.com/document/d/1P5iaskGZ6YeL6MwVCyzwalZNTHiFXlPy4wvgT6fLQ8I/edit?tab=t.0" target="_blank" class="btn btn-primary" style="white-space:nowrap; flex-shrink:0;">View Full Proposal →</a>
           </div>
@@ -829,15 +829,15 @@
           <div class="proposal-highlights">
             <div class="proposal-highlight">
               <p class="proposal-highlight-label">Problem Statement</p>
-              <p>Fedora RPM packaging guidelines are extensive and difficult to navigate. Developers, especially newcomers, struggle to find accurate, context-specific packaging advice quickly — leading to errors and delays in the packaging workflow.</p>
+              <p>In order for a new package to be added to Fedora, it must undergo a formal review. These reviews ensure that the package meets the quality control requirements for Fedora. These reviews rely on manpower and can be really complex. It is also a load of work for the human reviewers as the package has to meet all packaging guidelines. These reviewers might also cause inconsistencies as humans are prone to error.</p>
             </div>
             <div class="proposal-highlight">
               <p class="proposal-highlight-label">Project Objectives</p>
-              <p>Build a RAG pipeline that ingests Fedora packaging docs, stores them in a vector database, and uses RamaLama to serve a locally-run SLM that answers packaging questions with precise, grounded responses.</p>
+              <p>Curate and preprocess high-quality dataset of Fedora approved and non-compliant RPM spec files. Build a RAG  pipeline that grounds models responses in Fedora documentation guidelines. Use an appropriate SLM/LLM via RamaLama</p>
             </div>
             <div class="proposal-highlight">
               <p class="proposal-highlight-label">Technical Approach</p>
-              <p>Use Docling for document parsing, a vector store for semantic retrieval, and RamaLama to manage model serving. The system will run fully locally using Podman containers, requiring no cloud dependencies.</p>
+              <p>This includes; Data Curation and Preprocessing, RAG Pipeline Development, Model Serving with RamaLama, Deployment and interface and Evaluation and testing.</p>
             </div>
           </div>
         </div>
@@ -852,7 +852,7 @@
     <div class="section-inner">
       <p class="section-label">Getting Started</p>
       <h2 class="section-title">Pre-Requisite <span class="accent">Tasks</span></h2>
-      <p class="section-desc">Completed onboarding tasks required before the contribution phase begins.</p>
+      <p class="section-desc">Completed the pre-requisites required.</p>
 
       <div class="major-card">
         <div class="prereqs-grid">
@@ -932,8 +932,8 @@
         <div class="highlight-content">
           <h3>Fixed RamaLama Docsite's Broken Logo Link</h3>
           <p>
-            This was my very first open source contribution — and it got merged! I fixed a broken logo image on the RamaLama docsite homepage by removing a leading slash from the image path and implementing Docusaurus's <code style="font-family:'Space Mono',monospace; font-size:0.82rem; background:var(--bg3); padding:0.1rem 0.4rem; border-radius:3px;">useBaseUrl()</code> approach to resolve assets correctly across deployment environments.
-            It was a small but meaningful fix that taught me the full open source contribution workflow — forking, branching, DCO sign-off, and navigating PR review feedback. Seeing it merged was a really proud moment.
+            This was my very first open source contribution and it got merged. I fixed a broken logo image on the RamaLama docsite homepage by removing a leading slash from the image path and implementing Docusaurus's <code style="font-family:'Space Mono',monospace; font-size:0.82rem; background:var(--bg3); padding:0.1rem 0.4rem; border-radius:3px;">useBaseUrl()</code> approach to resolve assets correctly across deployment environments.
+            It was a small but meaningful fix that taught me the full open source contribution workflow; forking, branching, DCO sign-off, and navigating PR review feedback. Seeing it merged was a really proud moment.
           </p>
           <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
             <a href="https://github.com/containers/ramalama/pull/2580" target="_blank" class="highlight-pill">View PR #2580 →</a>
@@ -970,7 +970,7 @@
           <div class="card">
             <span class="card-type type-pr">Task</span>
             <h3>Docling: Explore document processing basics</h3>
-            <p>Used Docling CLI to parse PDFs and export them to multiple formats as a foundational exploration.</p>
+            <p>Used Docling CLI to parse PDFs and export them to multiple formats.</p>
             <div class="card-links-row">
               <a class="card-link-pill" href="https://github.com/Njeri-Kimaru/Docling_cli" target="_blank">GitHub Repo →</a>
             </div>
@@ -1011,7 +1011,7 @@
           <div class="card">
             <span class="card-type type-discuss">Discussion</span>
             <h3>Working with Fedora using a Virtual Machine</h3>
-            <p>A guide on setting up and using Fedora in a VMware virtual machine environment.</p>
+            <p>Collaborated with Happiness to write a guide on setting up and using Fedora in a VMware virtual machine environment.</p>
             <div class="card-links-row">
               <a class="card-link-pill" href="https://discussion.fedoraproject.org/t/working-with-fedora-using-a-virtual-machine-vmware/184968" target="_blank">View Discussion →</a>
             </div>
@@ -1045,7 +1045,7 @@
             <h3>Solving Fedora Account Profile Issues</h3>
             <p>A walkthrough video helping users troubleshoot and resolve common Fedora account profile setup problems.</p>
             <div class="card-links-row">
-              <a class="card-link-pill" href="https://www.youtube.com/watch?v=oNmBaDeCI0c" target="_blank">Watch on YouTube →</a>
+              <a class="card-link-pill" href="https://www.youtube.com/watch?v=5K4u7qRRdf0" target="_blank">Watch on YouTube →</a>
             </div>
           </div>
 
@@ -1062,7 +1062,7 @@
       <p class="section-label">Progress Journal</p>
       <h2 class="section-title">Weekly <span class="accent">Reports</span></h2>
       <p class="section-desc">
-        A week-by-week record of my work during the contribution period — what I explored, what I shipped, and what I learned.
+        A week-by-week record of my work during the contribution period what I explored, what challenged me and what I learned.
       </p>
 
       <div class="major-card">
@@ -1074,7 +1074,7 @@
               <span class="week-status done">Done</span>
             </div>
             <h3>From Intimidation to Immersion</h3>
-            <p>Transitioned my machine from Windows to Fedora, set up my FAS account, launched my blog, and published my first Fedora intro post. Dove into Docling for the first time and discovered its power for AI workflows. Created my first ever video guide and made my first Fedora Discussion post — a week of firsts that quickly turned excitement into momentum.</p>
+            <p>Transitioned my machine from Windows to Fedora, set up my FAS account, launched my blog, and published my first Fedora intro post. Dove into Docling for the first time and discovered its power for AI workflows. Created my first ever video guide and made my first Fedora Discussion post, a week of firsts that I got to have a great time.</p>
             <div class="week-links">
               <a class="week-link" href="https://docs.google.com/document/d/1Yvgy21Nj518ScGIKpuobfcfT1ZYGw-BeOHeN10nqftc/edit?tab=t.0" target="_blank">📄 Week 1 Report →</a>
             </div>
@@ -1086,7 +1086,7 @@
               <span class="week-status done">Done</span>
             </div>
             <h3>First Merged PR &amp; Deep Dives</h3>
-            <p>Landed my very first merged open-source PR — fixing the broken RamaLama docsite logo. Explored RamaLama's four transport systems hands-on, continued Docling deep dives, and collaborated with peers on formatting guidelines via HackMD. Walked teammates through my PR workflow and held individual knowledge-sharing sessions. A week of real contribution and meaningful connection.</p>
+            <p>Landed my very first merged open-source PR fixing the broken RamaLama docsite logo. Explored RamaLama's four transport systems hands-on, continued Docling deep dives, and collaborated with peers on formatting guidelines via HackMD. Walked teammates through my PR workflow and held individual knowledge-sharing sessions. A week of real contribution and meaningful connection.</p>
             <div class="week-links">
               <a class="week-link" href="https://docs.google.com/document/d/1K_VOdcmYxY5fSvAMtbtxPoVyUG-NNEySaA377D7goys/edit?tab=t.0" target="_blank">📄 Week 2 Report →</a>
             </div>
@@ -1098,7 +1098,7 @@
               <span class="week-status done">Done</span>
             </div>
             <h3>Collaboration, Reviews &amp; Portfolio</h3>
-            <p>Focused on peer reviews, giving and receiving feedback, and refining my portfolio and project proposal. Organised a group meeting to debug Tesseract OCR issues — what started as a helping session became a rich collaborative learning moment when more peers joined. Reviewed Ibrahim's PR on Ramalama docs, contributed corrections, and worked on documenting insights from the internship so far.</p>
+            <p>Focused on peer reviews, giving and receiving feedback, refining my portfolio and project proposal. Organised a group meeting to debug Tesseract OCR issues what started as a helping session became a rich collaborative learning moment when more peers joined. Reviewed Ibrahim's PR on Ramalama docs, contributed corrections, and worked on documenting insights from the internship so far.</p>
             <div class="week-links">
               <a class="week-link" href="https://docs.google.com/document/d/1AqMbq6Xd_VIu-fuI0HfeSAgQxFg7Ic8P-nhR64cEogc/edit?tab=t.0" target="_blank">📄 Week 3 Report →</a>
             </div>
@@ -1117,7 +1117,7 @@
     <div class="section-inner">
       <p class="section-label">Writing</p>
       <h2 class="section-title">Blog <span class="accent">Posts</span></h2>
-      <p class="section-desc">Writing about Outreachy, Fedora, AI/ML tooling, and lessons learned along the way.</p>
+      <p class="section-desc">Writing about Outreachy, Fedora, AI/ML, and lessons learned along the way.</p>
 
       <div class="major-card">
         <div class="contrib-grid-auto">
@@ -1145,7 +1145,7 @@
           <div class="card" style="border-color:rgba(130,60,160,0.2);">
             <span class="card-type type-doc">Blog Post</span>
             <h3><a href="https://dev.to/njeri_kimaru/dealing-with-unstructured-scanned-multilingual-pdfs-heres-how-to-parse-them-using-ocrs-with-4e9j" target="_blank">Docling: Processing Multilingual Documents</a></h3>
-            <p>Dealing with unstructured, scanned, multilingual PDFs — how to parse them using OCRs with Docling.</p>
+            <p>Dealing with unstructured, scanned, multilingual PDFs and how to parse them using OCRs with Docling.</p>
             <div class="card-footer">
               <span class="card-date">Dev.to · 2026</span>
               <a class="card-link" href="https://dev.to/njeri_kimaru/dealing-with-unstructured-scanned-multilingual-pdfs-heres-how-to-parse-them-using-ocrs-with-4e9j" target="_blank">Read →</a>
@@ -1155,7 +1155,7 @@
           <div class="card" style="border-color:rgba(130,60,160,0.2);">
             <span class="card-type type-doc">Blog Post</span>
             <h3><a href="https://dev.to/njeri_kimaru/docling-cli-to-parse-pdfs-and-export-it-to-multiple-formats-3cgc" target="_blank">Docling: Explore Document Processing Basics</a></h3>
-            <p>Using Docling CLI to parse PDFs and export to multiple formats — a practical beginner walkthrough.</p>
+            <p>Using Docling CLI to parse PDFs and export to multiple formats.</p>
             <div class="card-footer">
               <span class="card-date">Dev.to · 2026</span>
               <a class="card-link" href="https://dev.to/njeri_kimaru/docling-cli-to-parse-pdfs-and-export-it-to-multiple-formats-3cgc" target="_blank">Read →</a>
@@ -1165,7 +1165,7 @@
           <div class="card" style="border-color:rgba(130,60,160,0.2);">
             <span class="card-type type-doc">Blog Post</span>
             <h3><a href="https://dev.to/njeri_kimaru/does-ramalama-make-ai-boring-running-ai-models-with-ramalama-2kml" target="_blank">Does RamaLama Make AI Boring?</a></h3>
-            <p>Running AI models with RamaLama — exploring whether it truly makes working with AI "boring" (in the best way).</p>
+            <p>Running AI models with RamaLama exploring whether it truly makes working with AI "boring" (in a good way).</p>
             <div class="card-footer">
               <span class="card-date">Dev.to · 2026</span>
               <a class="card-link" href="https://dev.to/njeri_kimaru/does-ramalama-make-ai-boring-running-ai-models-with-ramalama-2kml" target="_blank">Read →</a>
@@ -1199,16 +1199,16 @@
             </div>
             <div class="social-posts-list">
               <a class="social-post-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7442254828346568706/" target="_blank">
-                <span class="social-post-emoji">🐧</span><span class="social-post-text">Fedora Linux — My First Post</span><span class="social-post-arrow">→</span>
+                <span class="social-post-emoji">🐧</span><span class="social-post-text">Fedora Linux </span><span class="social-post-arrow">→</span>
               </a>
               <a class="social-post-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7442308962722504704/" target="_blank">
-                <span class="social-post-emoji">🌱</span><span class="social-post-text">Joining Outreachy 2026</span><span class="social-post-arrow">→</span>
+                <span class="social-post-emoji">🌱</span><span class="social-post-text"> Outreachy onboarding guide </span><span class="social-post-arrow">→</span>
               </a>
               <a class="social-post-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7443603171014488064/" target="_blank">
-                <span class="social-post-emoji">📄</span><span class="social-post-text">Docling Basics — Document Parsing</span><span class="social-post-arrow">→</span>
+                <span class="social-post-emoji">📄</span><span class="social-post-text">Docling Basics </span><span class="social-post-arrow">→</span>
               </a>
               <a class="social-post-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7443612166051725312/" target="_blank">
-                <span class="social-post-emoji">🔍</span><span class="social-post-text">Docling OCR — Multilingual PDFs</span><span class="social-post-arrow">→</span>
+                <span class="social-post-emoji">🔍</span><span class="social-post-text">Docling OCR parsing scanned, multilingual PDFs</span><span class="social-post-arrow">→</span>
               </a>
               <a class="social-post-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7446606453039120384/" target="_blank">
                 <span class="social-post-emoji">🤖</span><span class="social-post-text">Does RamaLama Make AI Boring?</span><span class="social-post-arrow">→</span>
@@ -1226,16 +1226,16 @@
             </div>
             <div class="social-posts-list">
               <a class="social-post-item" href="https://mastodon.social/@iamnjeri/116285276264395662" target="_blank">
-                <span class="social-post-emoji">🐧</span><span class="social-post-text">Fedora Linux — My First Post</span><span class="social-post-arrow">→</span>
+                <span class="social-post-emoji">🐧</span><span class="social-post-text">Fedora Linux </span><span class="social-post-arrow">→</span>
               </a>
               <a class="social-post-item" href="https://mastodon.social/@iamnjeri/116353280876162428" target="_blank">
-                <span class="social-post-emoji">🌱</span><span class="social-post-text">Joining Outreachy 2026</span><span class="social-post-arrow">→</span>
+                <span class="social-post-emoji">🌱</span><span class="social-post-text"></span>Outreachy onboarding guide <span class="social-post-arrow">→</span>
               </a>
               <a class="social-post-item" href="https://mastodon.social/@iamnjeri/116311666026331660" target="_blank">
-                <span class="social-post-emoji">📄</span><span class="social-post-text">Docling Basics — Document Parsing</span><span class="social-post-arrow">→</span>
+                <span class="social-post-emoji">📄</span><span class="social-post-text">Docling Basics </span><span class="social-post-arrow">→</span>
               </a>
               <a class="social-post-item" href="https://mastodon.social/@iamnjeri/116311690553700357" target="_blank">
-                <span class="social-post-emoji">🔍</span><span class="social-post-text">Docling OCR — Multilingual PDFs</span><span class="social-post-arrow">→</span>
+                <span class="social-post-emoji">🔍</span><span class="social-post-text">Docling OCR parsing scanned, multilingual PDFs</span><span class="social-post-arrow">→</span>
               </a>
               <a class="social-post-item" href="https://mastodon.social/@iamnjeri/116353258729757259" target="_blank">
                 <span class="social-post-emoji">🤖</span><span class="social-post-text">Does RamaLama Make AI Boring?</span><span class="social-post-arrow">→</span>
@@ -1255,7 +1255,7 @@
     <div class="section-inner">
       <p class="section-label">Community</p>
       <h2 class="section-title">Community Engagement <span class="accent">&amp; Collaboration</span></h2>
-      <p class="section-desc">Going beyond tasks — actively engaging with peers, earning badges, running meetings, and strengthening the community.</p>
+      <p class="section-desc">Going beyond tasks, actively engaging with peers, earning badges, running meetings, and strengthening the community.</p>
 
       <div class="major-card">
 
@@ -1275,7 +1275,7 @@
               <div class="badge-icon">🥇</div>
               <div class="badge-info">
                 <strong>Forum Level 2</strong>
-                Continued engagement in Fedora discussions earned the Forum Level 2 trust badge.
+                Continued engaging in Fedora discussions earned the Forum Level 2 trust badge.
                 <br><a href="https://discussion.fedoraproject.org/badges/2/forum-level-2?username=iamnjeri" target="_blank">View Badge →</a>
               </div>
             </div>
@@ -1287,7 +1287,7 @@
           <p class="engagement-sub-title">🎙️ Meetings &amp; Peer Support</p>
 
           <div class="engagement-item">
-            <p>Shared how to contribute to RamaLama docs in a peer meeting — a peer commented it was of great help.</p>
+            <p>Shared how to contribute to RamaLama docs in a peer meeting and a peer commented it was of great help.</p>
             <div class="engagement-links">
               <a class="eng-link" href="https://tldv.io/app/meetings/69ce85a1a845ee00138060ec/" target="_blank">Meeting Recording →</a>
               <a class="eng-link" href="https://matrix.to/#/!XZHkqjSDzHymDOfjdF:matrix.org/$sNBUr2DHxX8NUTbbkm1XKJO7UBeu14i_RboiqNo_9g8?via=fedoraproject.org&via=matrix.org&via=fedora.im" target="_blank">Feedback Comment →</a>
@@ -1303,7 +1303,7 @@
           </div>
 
           <div class="engagement-item">
-            <p>Got involved in a peer meeting to help set up Fedora on WSL — a practical session helping peers get their dev environment running.</p>
+            <p>Got involved in a peer meeting with Farhana and Ibrahim to help set up Fedora on WSL.</p>
             <div class="engagement-links">
               <a class="eng-link" href="https://www.youtube.com/watch?v=3rStd2cly44" target="_blank">Meeting Recording →</a>
             </div>
@@ -1317,7 +1317,7 @@
           </div>
 
           <div class="engagement-item">
-            <p>Helped peer Happiness in an individual meeting with her RamaLama task — she was really grateful for the support.</p>
+            <p>Supported my peer, Happiness, in an individual meeting with her RamaLama task andshe was really grateful for the support.</p>
             <div class="engagement-links">
               <a class="eng-link" href="https://matrix.to/#/!XZHkqjSDzHymDOfjdF:matrix.org/$Oa1vzzf_wHFCiaKcTzOURD_dMJ_YXvDz25ndIEVf36E?via=fedoraproject.org&via=matrix.org&via=fedora.im" target="_blank">Comment →</a>
             </div>
@@ -1352,7 +1352,7 @@
           </div>
 
           <div class="engagement-item">
-            <p>Added a section to improve the HackMD formatting guidelines document, helping the whole team produce better-structured docs.</p>
+            <p>Added a section to improve the HackMD formatting guidelines document.</p>
             <div class="engagement-links">
               <a class="eng-link" href="https://hackmd.io/OqpUQzmVQcCI2ZzYy2vzNQ" target="_blank">Formatting Guidelines →</a>
             </div>
@@ -1399,11 +1399,11 @@
             <div class="reflection-icon">😤</div>
             <h3>What Challenged Me</h3>
             <ul style="color:var(--muted); font-size:0.9rem; line-height:1.75; padding-left:1.2rem;">
-              <li style="margin-bottom:0.6rem;">Transitioning my entire machine from Windows to Fedora in week one was intimidating — navigating an unfamiliar OS ecosystem from scratch while simultaneously diving into tasks was a real test of adaptability.</li>
-              <li style="margin-bottom:0.6rem;">Setting up a Fedora account profile picture proved unexpectedly tricky — a small thing that turned into a rabbit hole, though it led me to create a video guide helping peers avoid the same frustration.</li>
-              <li style="margin-bottom:0.6rem;">Working with Docling for the first time, especially processing unstructured multilingual scanned PDFs with OCR engines like Tesseract and TesserOCR, threw up several installation and compatibility challenges along the way.</li>
-              <li style="margin-bottom:0.6rem;">Navigating the many Fedora websites, tools, and platforms (FAS, Fedora Discussion, Pagure, Matrix, Mastodon) all at once in the first week felt overwhelming before things started to click into place.</li>
-              <li style="margin-bottom:0.6rem;">Balancing peer collaboration, individual tasks, PR reviews, and my own exploration — all in the same week — required careful prioritisation and energy management.</li>
+              <li style="margin-bottom:0.6rem;">Transitioning my entire machine from Windows to Fedora in week one it was intimidating navigating an unfamiliar OS ecosystem from scratch while simultaneously diving into tasks.</li>
+              <li style="margin-bottom:0.6rem;">Setting up a Fedora account profile picture was a bit tricky a small thing that turned into a rabbit hole, though it led me to create a video guide helping peers avoid the same frustration.</li>
+              <li style="margin-bottom:0.6rem;">Working with Docling for the first time, especially processing unstructured multilingual scanned PDFs with OCR engines like Tesseract and TesserOCR, threw up several installation and compatibility challenges.</li>
+              <li style="margin-bottom:0.6rem;">Navigating the many Fedora websites and platforms all at once in the first week felt overwhelming before things started to click into place.</li>
+              <li style="margin-bottom:0.6rem;">Balancing peer collaboration, individual tasks, PR reviews, and my own exploration all in week one required careful prioritisation.</li>
             </ul>
           </div>
 
@@ -1412,11 +1412,11 @@
             <div class="reflection-icon">💚</div>
             <h3>What I Loved</h3>
             <ul style="color:var(--muted); font-size:0.9rem; line-height:1.75; padding-left:1.2rem;">
-              <li style="margin-bottom:0.6rem;">Getting my very first open-source PR merged — fixing the broken RamaLama docsite logo — was a genuinely proud moment. That feeling of seeing your name in a merged commit is something special.</li>
-              <li style="margin-bottom:0.6rem;">Discovering RamaLama and how effortlessly it runs AI models locally with no configuration. As an AI engineer, watching it handle models I'd previously used in complex setups — with zero fuss — was a revelation.</li>
-              <li style="margin-bottom:0.6rem;">The collaborative spirit of the intern cohort. Every meeting, whether planned or spontaneous, turned into a genuine learning session. When more peers joined the Tesseract debugging call, what started as a one-person problem became a group breakthrough.</li>
-              <li style="margin-bottom:0.6rem;">Writing again. I hadn't posted on my blog or LinkedIn in a while, and this internship gave me the perfect reason to get back into it — sharing knowledge about Fedora, Docling, and RamaLama with a real audience.</li>
-              <li style="margin-bottom:0.6rem;">Becoming part of the Fedora community. Regardless of the outcome of this internship, Fedora has grown on me quickly — and it's a community I genuinely want to remain part of long after this programme ends.</li>
+              <li style="margin-bottom:0.6rem;">Getting my very first open-source PR merged on fixing the broken RamaLama docsite logo, was a genuinely proud moment. That feeling of seeing your name in a merged commit is something special.</li>
+              <li style="margin-bottom:0.6rem;">Discovering RamaLama and how effortlessly it runs AI models locally with no configuration. As an AI engineer, watching it handle models I'd previously used in complex setups was really exciting.</li>
+              <li style="margin-bottom:0.6rem;">The collaborative spirit of the intern cohort. Every meeting, whether planned or spontaneous, turned into a genuine learning session. When more peers joined the Tesseract debugging call, it became a really powerful experience as we got to learn from each other.</li>
+              <li style="margin-bottom:0.6rem;">Writing again and creating my very first video. I hadn't posted on my blog or LinkedIn in a while, and this internship gave me the perfect reason to get back into it sharing knowledge about Fedora, Docling, and RamaLama with a real audience. I posted my first video and can't wait to do more.</li>
+              <li style="margin-bottom:0.6rem;">Becoming part of the Fedora community. Fedora has grown on me quickly and it's a community I genuinely want to remain part of.</li>
             </ul>
           </div>
 
