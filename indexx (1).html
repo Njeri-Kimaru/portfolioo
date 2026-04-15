@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mercy Njeri Kimaru · Outreachy 2026 Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #f5f0e8;
+      --bg2: #ede8df;
+      --bg3: #e4ddd2;
+      --green: #6b5c45;
+      --green-dim: #8a7560;
+      --green-glow: rgba(107,92,69,0.12);
+      --green-border: rgba(107,92,69,0.3);
+      --text: #2c2416;
+      --muted: #7a6e60;
+      --card: #faf7f2;
+      --card-border: rgba(107,92,69,0.14);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Syne', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 64px;
+      background: rgba(245,240,232,0.93);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--card-border);
+    }
+    .nav-logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.9rem;
+      color: var(--green);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+    .nav-logo span { color: var(--text); }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    nav ul a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    nav ul a:hover, nav ul a.active { color: var(--green); }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 2.5rem 4rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 4rem;
+    }
+    .hero-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--green);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .hero-tag::before {
+      content: '';
+      display: inline-block;
+      width: 24px; height: 2px;
+      background: var(--green);
+    }
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+      overflow: visible;
+    }
+    h1 span.accent { display: block; }
+    h1 .accent { color: var(--green); }
+    .hero-role {
+      font-family: 'Space Mono', monospace;
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .cursor {
+      display: inline-block;
+      width: 2px; height: 1em;
+      background: var(--green);
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    .hero-bio {
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 520px;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* ── HERO SOCIAL ICONS ── */
+    .hero-socials {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .social-icon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px; height: 42px;
+      border-radius: 8px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      color: var(--muted);
+      text-decoration: none;
+      transition: all 0.25s;
+      font-size: 1.1rem;
+    }
+    .social-icon-btn:hover {
+      border-color: var(--green-border);
+      color: var(--green);
+      box-shadow: 0 0 16px var(--green-glow);
+      transform: translateY(-2px);
+    }
+    .social-icon-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: 6px;
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s;
+      letter-spacing: 0.03em;
+    }
+    .btn-primary { background: var(--green); color: #f5f0e8; border: 2px solid var(--green); }
+    .btn-primary:hover { background: transparent; color: var(--green); box-shadow: 0 0 20px var(--green-glow); }
+    .btn-outline { background: transparent; color: var(--green); border: 2px solid var(--green-border); }
+    .btn-outline:hover { border-color: var(--green); box-shadow: 0 0 20px var(--green-glow); }
+
+    /* ── AVATAR ── */
+    .hero-avatar { position: relative; width: 320px; height: 320px; flex-shrink: 0; }
+    .avatar-ring {
+      position: absolute;
+      inset: -12px;
+      border-radius: 50%;
+      border: 4px solid transparent;
+      background: conic-gradient(var(--green) 270deg, transparent 270deg) border-box;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
+      animation: spin 8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .avatar-inner {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      background: var(--bg3);
+      border: 4px solid var(--green-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .avatar-inner img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+    /* ── SECTIONS ── */
+    section { position: relative; z-index: 1; padding: 5rem 2.5rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--green);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .section-title { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; margin-bottom: 0.75rem; }
+    .section-title .accent { color: var(--green); }
+    .section-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 620px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── MAJOR WRAPPER CARD ── */
+    .major-card {
+      background: var(--bg2);
+      border: 1px solid rgba(107,92,69,0.18);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 40px rgba(107,92,69,0.06), 0 0 0 1px rgba(107,92,69,0.04);
+    }
+
+    /* ── SUBSECTION HEADING inside major card ── */
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      box-shadow: 0 4px 18px rgba(107,92,69,0.10), 0 1px 4px rgba(107,92,69,0.08), inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+    .card:hover {
+      border-color: var(--green-border);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(107,92,69,0.18), 0 4px 12px rgba(107,92,69,0.12), inset 0 1px 0 rgba(255,255,255,0.7);
+    }
+    .card-type {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      align-self: flex-start;
+    }
+    .type-pr      { background: rgba(107,92,69,0.10);  color: #4a3d2c;      border: 1px solid rgba(107,92,69,0.3); }
+    .type-issue   { background: rgba(180,110,30,0.10); color: #8a5a10;      border: 1px solid rgba(180,110,30,0.3); }
+    .type-comment { background: rgba(60,100,160,0.10); color: #2a5a9a;      border: 1px solid rgba(60,100,160,0.3); }
+    .type-doc     { background: rgba(130,60,160,0.10); color: #6a2a8a;      border: 1px solid rgba(130,60,160,0.3); }
+    .type-week    { background: rgba(20,130,150,0.10); color: #0e7a8a;      border: 1px solid rgba(20,130,150,0.3); }
+    .type-video   { background: rgba(180,40,40,0.10);  color: #9a2020;      border: 1px solid rgba(180,40,40,0.3); }
+    .type-discuss { background: rgba(140,100,20,0.10); color: #7a5810;      border: 1px solid rgba(140,100,20,0.3); }
+
+    .card h3 { font-size: 1.1rem; font-weight: 700; line-height: 1.4; }
+    .card h3 a { color: var(--text); text-decoration: none; transition: color 0.2s; }
+    .card h3 a:hover { color: var(--green); }
+    .card p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; flex: 1; }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.25rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(107,92,69,0.1);
+    }
+    .card-date { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--muted); }
+    .card-link {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--green);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: opacity 0.2s;
+    }
+    .card-link:hover { opacity: 0.75; }
+    .card-links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(107,92,69,0.1);
+      margin-top: 0.25rem;
+    }
+    .card-link-pill {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: #4a3d2c;
+      text-decoration: none;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      background: rgba(107,92,69,0.07);
+      border: 1px solid var(--green-border);
+      transition: opacity 0.2s;
+    }
+    .card-link-pill:hover { opacity: 0.75; }
+
+    /* ── CONTRIB GRID 4-col ── */
+    .contrib-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+    /* ── PREREQS GRID 5-col ── */
+    .prereqs-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .prereqs-grid .card { padding: 1.25rem; }
+    .contrib-grid-auto {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    /* ── PROPOSAL SECTION ── */
+    .proposal-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .proposal-highlights {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .proposal-highlight {
+      background: var(--bg2);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+    }
+    .proposal-highlight-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+    .proposal-highlight p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── BIGGEST CONTRIBUTION SECTION ── */
+    .highlight-section {
+      background: var(--card);
+      border: 2px solid var(--green-border);
+      border-radius: 14px;
+      padding: 2rem 2.5rem;
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .highlight-star {
+      font-size: 2.5rem;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .highlight-content h3 { font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+    .highlight-content p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem; }
+    .highlight-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--green);
+      padding: 0.35rem 0.9rem;
+      border-radius: 5px;
+      background: rgba(107,92,69,0.08);
+      border: 1px solid var(--green-border);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .highlight-pill:hover { background: rgba(107,92,69,0.16); }
+
+    /* ── COMMUNITY ENGAGEMENT SECTION ── */
+    .engagement-subsection { margin-top: 2rem; }
+    .engagement-subsection:first-child { margin-top: 0; }
+    .engagement-sub-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .engagement-item {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .engagement-item:hover { border-color: var(--green-border); transform: translateY(-2px); }
+    .engagement-item p { font-size: 0.9rem; color: var(--text); line-height: 1.6; }
+    .engagement-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.25rem; }
+    .eng-link {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--green);
+      text-decoration: none;
+      padding: 0.25rem 0.7rem;
+      border-radius: 4px;
+      background: rgba(107,92,69,0.07);
+      border: 1px solid rgba(107,92,69,0.2);
+      transition: background 0.2s;
+    }
+    .eng-link:hover { background: rgba(107,92,69,0.15); }
+    .badge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.5rem; }
+    .badge-item {
+      background: var(--bg2);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .badge-icon { font-size: 1.5rem; }
+    .badge-info strong { display: block; font-size: 0.9rem; color: var(--text); margin-bottom: 0.2rem; }
+    .badge-info a { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--green); text-decoration: none; }
+
+    @media (max-width: 1000px) {
+      .contrib-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .proposal-highlights { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .contrib-grid { grid-template-columns: 1fr; }
+      .badge-grid { grid-template-columns: 1fr; }
+    }
+    .sub-heading {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin: 2rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .sub-heading:first-child { margin-top: 0; }
+
+    /* ── WEEKLY DOCS grid ── */
+    .weeks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .week-card {
+      background: var(--card);
+      border: 1px solid rgba(107,92,69,0.18);
+      border-radius: 12px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    }
+    .week-card:hover {
+      border-color: rgba(107,92,69,0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(107,92,69,0.08);
+    }
+    .week-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .week-badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      background: rgba(107,92,69,0.1);
+      color: #4a3d2c;
+      border: 1px solid rgba(107,92,69,0.3);
+      white-space: nowrap;
+    }
+    .week-status {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+    }
+    .week-status.done    { background: rgba(107,92,69,0.1); color: #4a3d2c; border: 1px solid rgba(107,92,69,0.3); }
+    .week-status.pending { background: rgba(180,110,30,0.1); color: #8a5a10; border: 1px solid rgba(180,110,30,0.3); }
+    .week-card h3 { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .week-card p  { color: var(--muted); font-size: 0.875rem; line-height: 1.65; flex: 1; }
+    .week-links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.25rem; }
+    .week-link {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      color: #4a3d2c;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+      background: rgba(107,92,69,0.07);
+      border: 1px solid rgba(107,92,69,0.2);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .week-link:hover { background: rgba(107,92,69,0.15); border-color: rgba(107,92,69,0.4); }
+
+    /* ── REFLECTIONS (Challenges + Loved) ── */
+    .reflections-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .reflection-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .reflection-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    .reflection-card.challenges {
+      border: 1px solid rgba(180,40,40,0.2);
+    }
+    .reflection-card.loved {
+      border: 1px solid rgba(107,92,69,0.2);
+    }
+    .reflection-icon { font-size: 2rem; }
+    .reflection-card h3 { font-size: 1.1rem; font-weight: 700; }
+    .reflection-card.challenges h3 { color: #9a2020; }
+    .reflection-card.loved h3 { color: var(--green); }
+    .reflection-card p, .reflection-card ul {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.75;
+    }
+    .reflection-card ul { padding-left: 1.2rem; }
+    .reflection-card ul li { margin-bottom: 0.4rem; }
+    .reflection-placeholder {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: rgba(139,148,158,0.5);
+      font-style: italic;
+    }
+
+    /* ── SOCIAL SECTION CARDS ── */
+    .social-platform {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      box-shadow: 0 4px 18px rgba(107,92,69,0.09), inset 0 1px 0 rgba(255,255,255,0.6);
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+    .social-platform:hover {
+      border-color: var(--green-border);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 36px rgba(107,92,69,0.15), inset 0 1px 0 rgba(255,255,255,0.7);
+    }
+    .social-platform-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .social-platform-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .platform-linkedin { background: rgba(0,119,181,0.15); color: #0a66c2; border: 1px solid rgba(0,119,181,0.3); }
+    .platform-mastodon { background: rgba(99,100,255,0.15); color: #6364ff; border: 1px solid rgba(99,100,255,0.3); }
+    .social-platform-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .social-posts-list { display: flex; flex-direction: column; gap: 0.6rem; }
+    .social-post-item {
+      background: var(--bg2);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      transition: border-color 0.2s, background 0.2s;
+      text-decoration: none;
+    }
+    .social-post-item:hover {
+      border-color: var(--green-border);
+      background: var(--bg3);
+    }
+    .social-post-emoji { font-size: 1.1rem; flex-shrink: 0; }
+    .social-post-text {
+      font-size: 0.82rem;
+      color: var(--text);
+      font-weight: 600;
+      flex: 1;
+      line-height: 1.3;
+    }
+    .social-post-arrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--green);
+      flex-shrink: 0;
+      opacity: 0.8;
+    }
+
+    /* ── DIVIDER / PAGE BREAK ── */
+    .divider {
+      border: none;
+      margin: 0;
+      height: 60px;
+      position: relative;
+      overflow: hidden;
+      background: transparent;
+    }
+    .divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(107,92,69,0.08) 10%, rgba(107,92,69,0.3) 30%, rgba(107,92,69,0.5) 50%, rgba(107,92,69,0.3) 70%, rgba(107,92,69,0.08) 90%, transparent 100%);
+    }
+    .divider::after {
+      content: '✦';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.85rem;
+      color: var(--green);
+      background: var(--bg);
+      padding: 0 1.2rem;
+      letter-spacing: 0.6em;
+      opacity: 0.7;
+    }
+
+    /* ── STATUS BANNER ── */
+    .status-banner {
+      background: rgba(107,92,69,0.06);
+      border: 1px solid var(--green-border);
+      border-radius: 10px;
+      padding: 1.4rem 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .status-banner .icon { font-size: 1.4rem; flex-shrink: 0; }
+    .status-banner strong { color: var(--text); display: block; margin-bottom: 0.3rem; font-size: 0.95rem; }
+    .status-banner p { color: var(--muted); font-size: 0.875rem; line-height: 1.65; }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative; z-index: 1;
+      text-align: center;
+      padding: 2.5rem;
+      border-top: 1px solid rgba(107,92,69,0.12);
+    }
+    footer p { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--muted); }
+    footer a { color: var(--green); text-decoration: none; }
+
+    /* ── ANIMATIONS ── */
+    .fade-in { opacity: 0; transform: translateY(24px); animation: fadeUp 0.6s ease forwards; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-avatar { width: 240px; height: 240px; margin: 0 auto; }
+      .weeks-grid { grid-template-columns: 1fr; }
+      .reflections-grid { grid-template-columns: 1fr; }
+      .prereqs-grid { grid-template-columns: repeat(2, 1fr); }
+      nav ul { gap: 0.75rem; }
+    }
+    @media (max-width: 600px) {
+      .prereqs-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo"><span>&lt;/&gt;</span> Outreachy <span style="color:var(--green)">Portfolio</span></div>
+    <ul>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#proposal">Proposal</a></li>
+      <li><a href="#prereqs">Pre-Requisites</a></li>
+      <li><a href="#contributions">Contributions</a></li>
+      <li><a href="#weeklydocs">Weekly Docs</a></li>
+      <li><a href="#blogs">Blogs</a></li>
+      <li><a href="#social">Social</a></li>
+      <li><a href="#community">Community</a></li>
+      <li><a href="#reflections">Reflections</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-inner">
+      <div>
+        <p class="hero-tag fade-in">Outreachy 2026 · Fedora Project · SLM/LLM using RamaLama RAG</p>
+        <p class="hero-role fade-in delay-2"><span></span><span class="cursor"></span></p>
+        <h1 class="fade-in delay-1" style="overflow:visible; padding-bottom:0.15em;">
+            MERCY,<br>
+            <span class="accent">Njeri Kimaru</span>
+        </h1>
+        <p class="hero-bio fade-in delay-3">
+          I'm an Outreachy 2026 applicant working on the <strong style="color:var(--text)">Fedora Project</strong> — 
+          <strong style="color:var(--green)">"Develop a SLM/LLM using RamaLama RAG based off Fedora RPM packaging guidelines"</strong>.
+          I am an AI/ML engineer and have built several RAG systems end-to-end.
+          This portfolio documents my contributions and progress during the application phase.
+        </p>
+
+        <!-- Social icons -->
+        <div class="hero-socials fade-in delay-4">
+          <!-- GitHub -->
+          <a href="https://github.com/Njeri-Kimaru" target="_blank" class="social-icon-btn" title="GitHub">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/njeri-kimaru-025141237/" target="_blank" class="social-icon-btn" title="LinkedIn">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <!-- Mastodon -->
+          <a href="https://mastodon.social/@iamnjeri" target="_blank" class="social-icon-btn" title="Mastodon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.268 5.313c-.35-2.578-2.617-4.61-5.228-5.093C17.69.138 15.925.0 12.177.0h-.05c-3.747 0-5.512.138-5.863.22-2.475.461-4.862 2.3-5.415 4.931C.877 7.17.71 8.763.763 10.375c-.074 2.318-.056 4.635.236 6.937.35 2.4 2.506 4.338 4.947 4.893 2.556.57 5.224.637 7.839.186 2.072-.36 4.087-1.084 5.854-2.252a.077.077 0 0 0 .032-.04V12.6a.076.076 0 0 0-.032-.062C16.964 11.24 13.617 10.25 10.2 10.5c-1.738.13-3.35.78-4.584 1.87a5.374 5.374 0 0 0-1.86 4.14c-.02 1.1.28 2.17.9 3.06 1.37 1.98 3.82 2.95 6.2 2.98 2.5.04 5.03-.74 6.86-2.34v2.05c-1.83 1.1-3.94 1.74-6.1 1.74-4.85 0-8.77-2.57-10.5-6.94C.25 15.64.07 13.27.14 10.9.08 8.37.28 5.84 1.07 3.44 2.17.36 5.06-1.56 8.2-.93c.47.1.93.24 1.38.42l.33.14c.32.14.63.3.92.48.3.18.58.39.84.62.52.47.94 1.03 1.24 1.66.3.62.46 1.3.47 1.98v6.4c-.07-.67-.2-1.34-.38-1.99-.42-1.55-1.3-2.95-2.52-3.96-1.22-1.01-2.77-1.61-4.37-1.72-2.06-.14-4.1.5-5.63 1.82a7.12 7.12 0 0 0-2.5 5.43c-.02 1.46.38 2.9 1.16 4.1 1.62 2.5 4.55 3.87 7.48 3.78 2.93-.09 5.78-1.62 7.27-4.18.38-.65.66-1.36.84-2.09.18-.72.27-1.47.27-2.22V5.82c.78.52 1.49 1.14 2.1 1.86.3.35.56.73.78 1.13.23.4.42.83.55 1.28.14.45.22.92.25 1.39.03.47.03.95-.01 1.42-.03.47-.1.93-.2 1.38.21-.9.34-1.83.38-2.77.06-1.15-.02-2.3-.2-3.42z"/></svg>
+          </a>
+          <!-- X / Twitter -->
+          <a href="https://x.com/Kimaru_Njeri" target="_blank" class="social-icon-btn" title="X (Twitter)">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+          </a>
+          <!-- Matrix -->
+          <a href="https://matrix.to/#/@njeri_kimaru:matrix.org" target="_blank" class="social-icon-btn" title="Matrix Chat">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.632.55v22.9H2.28V24H0V0h2.28v.55zm7.043 7.26v1.157h.033a3.312 3.312 0 0 1 1.117-1.024 3.14 3.14 0 0 1 1.56-.38c.56 0 1.077.107 1.547.32.47.214.822.607 1.053 1.183.26-.44.637-.823 1.13-1.148a3.09 3.09 0 0 1 1.714-.496c.498 0 .955.063 1.372.19.418.127.778.334 1.08.624.302.29.537.662.703 1.117.166.455.25.998.25 1.627v6.276h-2.44V12.59c0-.316-.012-.608-.033-.872a1.963 1.963 0 0 0-.16-.69 1.075 1.075 0 0 0-.427-.462 1.44 1.44 0 0 0-.753-.171 1.48 1.48 0 0 0-.775.19 1.4 1.4 0 0 0-.496.513 2.175 2.175 0 0 0-.26.734 5.126 5.126 0 0 0-.07.867v5.163h-2.44V12.59c0-.295-.008-.58-.024-.853a2.15 2.15 0 0 0-.14-.696 1.077 1.077 0 0 0-.413-.47 1.378 1.378 0 0 0-.758-.179c-.244 0-.48.054-.71.162a1.55 1.55 0 0 0-.545.457 2.09 2.09 0 0 0-.337.728 3.82 3.82 0 0 0-.113.97v5.337H5.23V7.81zm16.293-7.26V24H21.72v-.55h1.648V.55H21.72V0H24v24h-2.28v-.55h-1.648V.55h1.648V0z"/></svg>
+          </a>
+        </div>
+
+        <div class="hero-btns fade-in delay-5">
+          <a href="#proposal" class="btn btn-primary">⬇ View Project Proposal</a>
+        </div>
+      </div>
+
+      <!-- AVATAR -->
+      <div class="hero-avatar">
+        <div class="avatar-ring"></div>
+        <div class="avatar-inner">
+          <img src="prof.png" alt="Njeri Kimaru">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- PROJECT PROPOSAL -->
+  <section id="proposal">
+    <div class="section-inner">
+      <p class="section-label">Project</p>
+      <h2 class="section-title">Project <span class="accent">Proposal</span></h2>
+      <p class="section-desc">A proposed SLM/LLM system using RamaLama RAG based off Fedora RPM packaging guidelines.</p>
+
+      <div class="major-card">
+        <div class="proposal-card">
+          <div style="display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+            <div>
+              <h3 style="font-size:1.25rem; font-weight:700; color:var(--text); margin-bottom:0.4rem;">Develop a SLM/LLM using RamaLama RAG based off Fedora RPM packaging guidelines</h3>
+              <p style="color:var(--muted); font-size:0.9rem; line-height:1.7; max-width:660px;">A Retrieval-Augmented Generation system that ingests Fedora RPM packaging guidelines and serves them through a locally-run small language model via RamaLama — making packaging knowledge accessible through natural language queries.</p>
+            </div>
+            <a href="https://docs.google.com/document/d/1P5iaskGZ6YeL6MwVCyzwalZNTHiFXlPy4wvgT6fLQ8I/edit?tab=t.0" target="_blank" class="btn btn-primary" style="white-space:nowrap; flex-shrink:0;">View Full Proposal →</a>
+          </div>
+
+          <div class="proposal-highlights">
+            <div class="proposal-highlight">
+              <p class="proposal-highlight-label">Problem Statement</p>
+              <p>Fedora RPM packaging guidelines are extensive and difficult to navigate. Developers, especially newcomers, struggle to find accurate, context-specific packaging advice quickly — leading to errors and delays in the packaging workflow.</p>
+            </div>
+            <div class="proposal-highlight">
+              <p class="proposal-highlight-label">Project Objectives</p>
+              <p>Build a RAG pipeline that ingests Fedora packaging docs, stores them in a vector database, and uses RamaLama to serve a locally-run SLM that answers packaging questions with precise, grounded responses.</p>
+            </div>
+            <div class="proposal-highlight">
+              <p class="proposal-highlight-label">Technical Approach</p>
+              <p>Use Docling for document parsing, a vector store for semantic retrieval, and RamaLama to manage model serving. The system will run fully locally using Podman containers, requiring no cloud dependencies.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- PRE-REQUISITE TASKS -->
+  <section id="prereqs">
+    <div class="section-inner">
+      <p class="section-label">Getting Started</p>
+      <h2 class="section-title">Pre-Requisite <span class="accent">Tasks</span></h2>
+      <p class="section-desc">Completed onboarding tasks required before the contribution phase begins.</p>
+
+      <div class="major-card">
+        <div class="prereqs-grid">
+
+          <!-- FAS Account -->
+          <div class="card">
+            <span class="card-type type-pr">Account Setup</span>
+            <h3>Set up Fedora Account System (FAS) account</h3>
+            <p>Created my Fedora account, set up my profile, and posted the link via a comment on issue #116.</p>
+            <div class="card-links-row">
+              <a class="card-link-pill" href="https://accounts.fedoraproject.org/user/iamnjeri/" target="_blank">FAS Profile →</a>
+              <a class="card-link-pill" href="https://forge.fedoraproject.org/commops/interns/issues/116#issuecomment-591620" target="_blank">Submission Comment →</a>
+            </div>
+          </div>
+
+          <!-- Personal Blog -->
+          <div class="card">
+            <span class="card-type type-doc">Blog</span>
+            <h3>Created a personal blog on Dev.to</h3>
+            <p>Set up a personal blog for documenting my Outreachy journey and commented the link on the relevant issue.</p>
+            <div class="card-links-row">
+              <a class="card-link-pill" href="https://dev.to/njeri_kimaru" target="_blank">Blog →</a>
+              <a class="card-link-pill" href="https://forge.fedoraproject.org/commops/interns/issues/117#issuecomment-591634" target="_blank">Submission Comment →</a>
+            </div>
+          </div>
+
+          <!-- Intro to Fedora Blog -->
+          <div class="card">
+            <span class="card-type type-doc">Blog Post</span>
+            <h3>Wrote an introduction to Fedora Linux blog post</h3>
+            <p>Published an introductory post about Fedora Linux, the Fedora community & Fedora Project for beginners. Commented the link on issue #118.</p>
+            <div class="card-links-row">
+              <a class="card-link-pill" href="https://dev.to/njeri_kimaru/fedora-linux-not-fedora-hats-a-beginners-guide-to-fedora-14nj" target="_blank">Blog Post →</a>
+              <a class="card-link-pill" href="https://forge.fedoraproject.org/commops/interns/issues/118#issuecomment-591827" target="_blank">Submission Comment →</a>
+            </div>
+          </div>
+
+          <!-- Social Media Promotion -->
+          <div class="card">
+            <span class="card-type type-comment">Social</span>
+            <h3>Promoted my intro posts on social media</h3>
+            <p>Shared blog posts across LinkedIn and Mastodon, and commented on issue #119 with the social media post links.</p>
+            <div class="card-links-row">
+              <a class="card-link-pill" href="https://www.linkedin.com/feed/update/urn:li:share:7442254827080011776/" target="_blank">LinkedIn →</a>
+              <a class="card-link-pill" href="https://mastodon.social/@iamnjeri/116285276264395662" target="_blank">Mastodon →</a>
+              <a class="card-link-pill" href="https://forge.fedoraproject.org/commops/interns/issues/119#issuecomment-591834" target="_blank">Submission Comment →</a>
+            </div>
+          </div>
+
+          <!-- Onboarding Guide -->
+          <div class="card">
+            <span class="card-type type-doc">Guide</span>
+            <h3>Wrote an onboarding guide for future Outreachy applicants</h3>
+            <p>Wrote clear instructions and practical tips on how to be an outstanding Outreachy applicant. Commented on issue #120.</p>
+            <div class="card-links-row">
+              <a class="card-link-pill" href="https://dev.to/njeri_kimaru/wondering-how-to-join-outreachy-look-no-further-a-clear-onboarding-guide-for-outreachy-internship-1775" target="_blank">Blog Post →</a>
+              <a class="card-link-pill" href="https://forge.fedoraproject.org/commops/interns/issues/120#issuecomment-591886" target="_blank">Submission Comment →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- BIGGEST CONTRIBUTION HIGHLIGHT -->
+  <section id="highlight">
+    <div class="section-inner">
+      <p class="section-label">Highlight</p>
+      <h2 class="section-title">Biggest <span class="accent">Contribution</span></h2>
+      <p class="section-desc">The contribution I'm most proud of during this internship.</p>
+
+      <div class="highlight-section">
+        <div class="highlight-star">⭐</div>
+        <div class="highlight-content">
+          <h3>Fixed RamaLama Docsite's Broken Logo Link</h3>
+          <p>
+            This was my very first open source contribution — and it got merged! I fixed a broken logo image on the RamaLama docsite homepage by removing a leading slash from the image path and implementing Docusaurus's <code style="font-family:'Space Mono',monospace; font-size:0.82rem; background:var(--bg3); padding:0.1rem 0.4rem; border-radius:3px;">useBaseUrl()</code> approach to resolve assets correctly across deployment environments.
+            It was a small but meaningful fix that taught me the full open source contribution workflow — forking, branching, DCO sign-off, and navigating PR review feedback. Seeing it merged was a really proud moment.
+          </p>
+          <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+            <a href="https://github.com/containers/ramalama/pull/2580" target="_blank" class="highlight-pill">View PR #2580 →</a>
+            <span class="highlight-pill" style="cursor:default; background:rgba(107,92,69,0.14);">✓ Merged</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- CONTRIBUTIONS -->
+  <section id="contributions">
+    <div class="section-inner">
+      <p class="section-label">Contributions</p>
+      <h2 class="section-title">My <span class="accent">Contributions</span></h2>
+      <p class="section-desc">Task contributions, GitHub pull requests, Fedora Discussions posts, and video/graphics produced during the contribution period.</p>
+
+      <div class="major-card">
+
+        <p class="sub-heading">📁 Task Contributions</p>
+        <div class="contrib-grid">
+
+          <div class="card">
+            <span class="card-type type-pr">Task</span>
+            <h3>Docling: Processing multilingual documents</h3>
+            <p>Explored and implemented Docling for parsing multilingual, scanned PDFs using OCR engines.</p>
+            <div class="card-links-row">
+              <a class="card-link-pill" href="https://github.com/Njeri-Kimaru/Docling_ocr_task" target="_blank">GitHub Repo →</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="card-type type-pr">Task</span>
+            <h3>Docling: Explore document processing basics</h3>
+            <p>Used Docling CLI to parse PDFs and export them to multiple formats as a foundational exploration.</p>
+            <div class="card-links-row">
+              <a class="card-link-pill" href="https://github.com/Njeri-Kimaru/Docling_cli" target="_blank">GitHub Repo →</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="card-type type-pr">Task</span>
+            <h3>Ramalama: Learn how RamaLama makes working with AI boring</h3>
+            <p>Hands-on exploration of RamaLama for running AI models locally with containers.</p>
+            <div class="card-links-row">
+              <a class="card-link-pill" href="https://github.com/Njeri-Kimaru/Ramalama_task" target="_blank">GitHub Repo →</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="card-type type-issue">Pull Request</span>
+            <h3>Fix broken homepage logo image path in containers/ramalama</h3>
+            <p>Fixed a broken logo image in the docsite by removing a leading slash and implementing Docusaurus's <code>useBaseUrl()</code> approach. PR #2580.</p>
+            <div class="card-links-row">
+              <a class="card-link-pill" href="https://github.com/containers/ramalama/pull/2580" target="_blank">View PR →</a>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="sub-heading">💬 Fedora Discussions Contributions</p>
+        <div class="contrib-grid">
+
+          <div class="card">
+            <span class="card-type type-discuss">Discussion</span>
+            <h3>Navigating Fedora Websites</h3>
+            <p>A community post guiding users through the various Fedora community websites and how to navigate them effectively.</p>
+            <div class="card-links-row">
+              <a class="card-link-pill" href="https://discussion.fedoraproject.org/t/navigating-the-fedora-community-dont-miss-out/184474" target="_blank">View Discussion →</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="card-type type-discuss">Discussion</span>
+            <h3>Working with Fedora using a Virtual Machine</h3>
+            <p>A guide on setting up and using Fedora in a VMware virtual machine environment.</p>
+            <div class="card-links-row">
+              <a class="card-link-pill" href="https://discussion.fedoraproject.org/t/working-with-fedora-using-a-virtual-machine-vmware/184968" target="_blank">View Discussion →</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="card-type type-discuss">Discussion</span>
+            <h3>How to Contribute and Create a Pull Request</h3>
+            <p>Community post explaining the full workflow for contributing to open source projects and creating pull requests.</p>
+            <div class="card-links-row">
+              <a class="card-link-pill" href="https://discussion.fedoraproject.org/t/how-to-contribute-and-create-a-pull-request/185150" target="_blank">View Discussion →</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="card-type type-discuss">Discussion</span>
+            <h3>Does ramalama make AI  boring? </h3>
+            <p>This was a discussion following a meeting on ramalama and how it runs AI models locally.</p>
+            <div class="card-links-row">
+              <a class="card-link-pill" href="https://discussion.fedoraproject.org/t/how-to-contribute-and-create-a-pull-request/185150" target="_blank">View Discussion →</a>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="sub-heading">🎬 Video / Graphics</p>
+        <div class="contrib-grid-auto">
+
+          <div class="card">
+            <span class="card-type type-video">Video</span>
+            <h3>Solving Fedora Account Profile Issues</h3>
+            <p>A walkthrough video helping users troubleshoot and resolve common Fedora account profile setup problems.</p>
+            <div class="card-links-row">
+              <a class="card-link-pill" href="https://www.youtube.com/watch?v=oNmBaDeCI0c" target="_blank">Watch on YouTube →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- WEEKLY DOCS -->
+  <section id="weeklydocs">
+    <div class="section-inner">
+      <p class="section-label">Progress Journal</p>
+      <h2 class="section-title">Weekly <span class="accent">Reports</span></h2>
+      <p class="section-desc">
+        A week-by-week record of my work during the contribution period — what I explored, what I shipped, and what I learned.
+      </p>
+
+      <div class="major-card">
+        <div class="weeks-grid">
+
+          <div class="week-card">
+            <div class="week-header">
+              <span class="week-badge">Week 1</span>
+              <span class="week-status done">Done</span>
+            </div>
+            <h3>From Intimidation to Immersion</h3>
+            <p>Transitioned my machine from Windows to Fedora, set up my FAS account, launched my blog, and published my first Fedora intro post. Dove into Docling for the first time and discovered its power for AI workflows. Created my first ever video guide and made my first Fedora Discussion post — a week of firsts that quickly turned excitement into momentum.</p>
+            <div class="week-links">
+              <a class="week-link" href="https://docs.google.com/document/d/1Yvgy21Nj518ScGIKpuobfcfT1ZYGw-BeOHeN10nqftc/edit?tab=t.0" target="_blank">📄 Week 1 Report →</a>
+            </div>
+          </div>
+
+          <div class="week-card">
+            <div class="week-header">
+              <span class="week-badge">Week 2</span>
+              <span class="week-status done">Done</span>
+            </div>
+            <h3>First Merged PR &amp; Deep Dives</h3>
+            <p>Landed my very first merged open-source PR — fixing the broken RamaLama docsite logo. Explored RamaLama's four transport systems hands-on, continued Docling deep dives, and collaborated with peers on formatting guidelines via HackMD. Walked teammates through my PR workflow and held individual knowledge-sharing sessions. A week of real contribution and meaningful connection.</p>
+            <div class="week-links">
+              <a class="week-link" href="https://docs.google.com/document/d/1K_VOdcmYxY5fSvAMtbtxPoVyUG-NNEySaA377D7goys/edit?tab=t.0" target="_blank">📄 Week 2 Report →</a>
+            </div>
+          </div>
+
+          <div class="week-card">
+            <div class="week-header">
+              <span class="week-badge">Week 3</span>
+              <span class="week-status done">Done</span>
+            </div>
+            <h3>Collaboration, Reviews &amp; Portfolio</h3>
+            <p>Focused on peer reviews, giving and receiving feedback, and refining my portfolio and project proposal. Organised a group meeting to debug Tesseract OCR issues — what started as a helping session became a rich collaborative learning moment when more peers joined. Reviewed Ibrahim's PR on Ramalama docs, contributed corrections, and worked on documenting insights from the internship so far.</p>
+            <div class="week-links">
+              <a class="week-link" href="https://docs.google.com/document/d/1AqMbq6Xd_VIu-fuI0HfeSAgQxFg7Ic8P-nhR64cEogc/edit?tab=t.0" target="_blank">📄 Week 3 Report →</a>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- BLOG POSTS -->
+  <section id="blogs">
+    <div class="section-inner">
+      <p class="section-label">Writing</p>
+      <h2 class="section-title">Blog <span class="accent">Posts</span></h2>
+      <p class="section-desc">Writing about Outreachy, Fedora, AI/ML tooling, and lessons learned along the way.</p>
+
+      <div class="major-card">
+        <div class="contrib-grid-auto">
+
+          <div class="card" style="border-color:rgba(130,60,160,0.2);">
+            <span class="card-type type-doc">Blog Post</span>
+            <h3><a href="https://dev.to/njeri_kimaru/fedora-linux-not-fedora-hats-a-beginners-guide-to-fedora-14nj" target="_blank">Fedora Linux (Not Fedora Hats): A Beginner's Guide</a></h3>
+            <p>Introduction to Fedora Linux, the Fedora Project, and the wider Fedora community — written for absolute beginners.</p>
+            <div class="card-footer">
+              <span class="card-date">Dev.to · 2026</span>
+              <a class="card-link" href="https://dev.to/njeri_kimaru/fedora-linux-not-fedora-hats-a-beginners-guide-to-fedora-14nj" target="_blank">Read →</a>
+            </div>
+          </div>
+
+          <div class="card" style="border-color:rgba(130,60,160,0.2);">
+            <span class="card-type type-doc">Blog Post</span>
+            <h3><a href="https://dev.to/njeri_kimaru/wondering-how-to-join-outreachy-look-no-further-a-clear-onboarding-guide-for-outreachy-internship-1775" target="_blank">Onboarding Guide for Outreachy Applicants</a></h3>
+            <p>Clear guidance and practical tips on how to stand out during the Outreachy application process.</p>
+            <div class="card-footer">
+              <span class="card-date">Dev.to · 2026</span>
+              <a class="card-link" href="https://dev.to/njeri_kimaru/wondering-how-to-join-outreachy-look-no-further-a-clear-onboarding-guide-for-outreachy-internship-1775" target="_blank">Read →</a>
+            </div>
+          </div>
+
+          <div class="card" style="border-color:rgba(130,60,160,0.2);">
+            <span class="card-type type-doc">Blog Post</span>
+            <h3><a href="https://dev.to/njeri_kimaru/dealing-with-unstructured-scanned-multilingual-pdfs-heres-how-to-parse-them-using-ocrs-with-4e9j" target="_blank">Docling: Processing Multilingual Documents</a></h3>
+            <p>Dealing with unstructured, scanned, multilingual PDFs — how to parse them using OCRs with Docling.</p>
+            <div class="card-footer">
+              <span class="card-date">Dev.to · 2026</span>
+              <a class="card-link" href="https://dev.to/njeri_kimaru/dealing-with-unstructured-scanned-multilingual-pdfs-heres-how-to-parse-them-using-ocrs-with-4e9j" target="_blank">Read →</a>
+            </div>
+          </div>
+
+          <div class="card" style="border-color:rgba(130,60,160,0.2);">
+            <span class="card-type type-doc">Blog Post</span>
+            <h3><a href="https://dev.to/njeri_kimaru/docling-cli-to-parse-pdfs-and-export-it-to-multiple-formats-3cgc" target="_blank">Docling: Explore Document Processing Basics</a></h3>
+            <p>Using Docling CLI to parse PDFs and export to multiple formats — a practical beginner walkthrough.</p>
+            <div class="card-footer">
+              <span class="card-date">Dev.to · 2026</span>
+              <a class="card-link" href="https://dev.to/njeri_kimaru/docling-cli-to-parse-pdfs-and-export-it-to-multiple-formats-3cgc" target="_blank">Read →</a>
+            </div>
+          </div>
+
+          <div class="card" style="border-color:rgba(130,60,160,0.2);">
+            <span class="card-type type-doc">Blog Post</span>
+            <h3><a href="https://dev.to/njeri_kimaru/does-ramalama-make-ai-boring-running-ai-models-with-ramalama-2kml" target="_blank">Does RamaLama Make AI Boring?</a></h3>
+            <p>Running AI models with RamaLama — exploring whether it truly makes working with AI "boring" (in the best way).</p>
+            <div class="card-footer">
+              <span class="card-date">Dev.to · 2026</span>
+              <a class="card-link" href="https://dev.to/njeri_kimaru/does-ramalama-make-ai-boring-running-ai-models-with-ramalama-2kml" target="_blank">Read →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- SOCIAL MEDIA POSTS -->
+  <section id="social">
+    <div class="section-inner">
+      <p class="section-label">Social Media</p>
+      <h2 class="section-title">Social Media <span class="accent">Posts</span></h2>
+      <p class="section-desc">Sharing my Outreachy journey across LinkedIn and Mastodon to engage the wider community.</p>
+
+      <div class="major-card">
+        <div class="contrib-grid">
+
+          <!-- LinkedIn -->
+          <div class="social-platform">
+            <div class="social-platform-header">
+              <div class="social-platform-icon platform-linkedin">
+                <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </div>
+              <span class="social-platform-title">LinkedIn</span>
+            </div>
+            <div class="social-posts-list">
+              <a class="social-post-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7442254828346568706/" target="_blank">
+                <span class="social-post-emoji">🐧</span><span class="social-post-text">Fedora Linux — My First Post</span><span class="social-post-arrow">→</span>
+              </a>
+              <a class="social-post-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7442308962722504704/" target="_blank">
+                <span class="social-post-emoji">🌱</span><span class="social-post-text">Joining Outreachy 2026</span><span class="social-post-arrow">→</span>
+              </a>
+              <a class="social-post-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7443603171014488064/" target="_blank">
+                <span class="social-post-emoji">📄</span><span class="social-post-text">Docling Basics — Document Parsing</span><span class="social-post-arrow">→</span>
+              </a>
+              <a class="social-post-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7443612166051725312/" target="_blank">
+                <span class="social-post-emoji">🔍</span><span class="social-post-text">Docling OCR — Multilingual PDFs</span><span class="social-post-arrow">→</span>
+              </a>
+              <a class="social-post-item" href="https://www.linkedin.com/feed/update/urn:li:activity:7446606453039120384/" target="_blank">
+                <span class="social-post-emoji">🤖</span><span class="social-post-text">Does RamaLama Make AI Boring?</span><span class="social-post-arrow">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Mastodon -->
+          <div class="social-platform">
+            <div class="social-platform-header">
+              <div class="social-platform-icon platform-mastodon">
+                <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;"><path d="M23.268 5.313c-.35-2.578-2.617-4.61-5.228-5.093C17.69.138 15.925.0 12.177.0h-.05c-3.747 0-5.512.138-5.863.22-2.475.461-4.862 2.3-5.415 4.931C.877 7.17.71 8.763.763 10.375c-.074 2.318-.056 4.635.236 6.937.35 2.4 2.506 4.338 4.947 4.893 2.556.57 5.224.637 7.839.186 2.072-.36 4.087-1.084 5.854-2.252a.077.077 0 0 0 .032-.04V12.6a.076.076 0 0 0-.032-.062C16.964 11.24 13.617 10.25 10.2 10.5c-1.738.13-3.35.78-4.584 1.87a5.374 5.374 0 0 0-1.86 4.14c-.02 1.1.28 2.17.9 3.06 1.37 1.98 3.82 2.95 6.2 2.98 2.5.04 5.03-.74 6.86-2.34v2.05c-1.83 1.1-3.94 1.74-6.1 1.74-4.85 0-8.77-2.57-10.5-6.94C.25 15.64.07 13.27.14 10.9.08 8.37.28 5.84 1.07 3.44 2.17.36 5.06-1.56 8.2-.93c.47.1.93.24 1.38.42l.33.14c.32.14.63.3.92.48.3.18.58.39.84.62.52.47.94 1.03 1.24 1.66.3.62.46 1.3.47 1.98v6.4c-.07-.67-.2-1.34-.38-1.99-.42-1.55-1.3-2.95-2.52-3.96-1.22-1.01-2.77-1.61-4.37-1.72-2.06-.14-4.1.5-5.63 1.82a7.12 7.12 0 0 0-2.5 5.43c-.02 1.46.38 2.9 1.16 4.1 1.62 2.5 4.55 3.87 7.48 3.78 2.93-.09 5.78-1.62 7.27-4.18.38-.65.66-1.36.84-2.09.18-.72.27-1.47.27-2.22V5.82c.78.52 1.49 1.14 2.1 1.86.3.35.56.73.78 1.13.23.4.42.83.55 1.28.14.45.22.92.25 1.39.03.47.03.95-.01 1.42z"/></svg>
+              </div>
+              <span class="social-platform-title">Mastodon</span>
+            </div>
+            <div class="social-posts-list">
+              <a class="social-post-item" href="https://mastodon.social/@iamnjeri/116285276264395662" target="_blank">
+                <span class="social-post-emoji">🐧</span><span class="social-post-text">Fedora Linux — My First Post</span><span class="social-post-arrow">→</span>
+              </a>
+              <a class="social-post-item" href="https://mastodon.social/@iamnjeri/116353280876162428" target="_blank">
+                <span class="social-post-emoji">🌱</span><span class="social-post-text">Joining Outreachy 2026</span><span class="social-post-arrow">→</span>
+              </a>
+              <a class="social-post-item" href="https://mastodon.social/@iamnjeri/116311666026331660" target="_blank">
+                <span class="social-post-emoji">📄</span><span class="social-post-text">Docling Basics — Document Parsing</span><span class="social-post-arrow">→</span>
+              </a>
+              <a class="social-post-item" href="https://mastodon.social/@iamnjeri/116311690553700357" target="_blank">
+                <span class="social-post-emoji">🔍</span><span class="social-post-text">Docling OCR — Multilingual PDFs</span><span class="social-post-arrow">→</span>
+              </a>
+              <a class="social-post-item" href="https://mastodon.social/@iamnjeri/116353258729757259" target="_blank">
+                <span class="social-post-emoji">🤖</span><span class="social-post-text">Does RamaLama Make AI Boring?</span><span class="social-post-arrow">→</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- COMMUNITY ENGAGEMENT -->
+  <section id="community">
+    <div class="section-inner">
+      <p class="section-label">Community</p>
+      <h2 class="section-title">Community Engagement <span class="accent">&amp; Collaboration</span></h2>
+      <p class="section-desc">Going beyond tasks — actively engaging with peers, earning badges, running meetings, and strengthening the community.</p>
+
+      <div class="major-card">
+
+        <!-- BADGES -->
+        <div class="engagement-subsection">
+          <p class="engagement-sub-title">🏅 Badges Earned</p>
+          <div class="badge-grid">
+            <div class="badge-item">
+              <div class="badge-icon">🥈</div>
+              <div class="badge-info">
+                <strong>Forum Level 1</strong>
+                Actively involved in Fedora discussions and earned the Forum Level 1 trust badge.
+                <br><a href="https://discussion.fedoraproject.org/badges/1/forum-level-1?username=iamnjeri" target="_blank">View Badge →</a>
+              </div>
+            </div>
+            <div class="badge-item">
+              <div class="badge-icon">🥇</div>
+              <div class="badge-info">
+                <strong>Forum Level 2</strong>
+                Continued engagement in Fedora discussions earned the Forum Level 2 trust badge.
+                <br><a href="https://discussion.fedoraproject.org/badges/2/forum-level-2?username=iamnjeri" target="_blank">View Badge →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MEETINGS -->
+        <div class="engagement-subsection">
+          <p class="engagement-sub-title">🎙️ Meetings &amp; Peer Support</p>
+
+          <div class="engagement-item">
+            <p>Shared how to contribute to RamaLama docs in a peer meeting — a peer commented it was of great help.</p>
+            <div class="engagement-links">
+              <a class="eng-link" href="https://tldv.io/app/meetings/69ce85a1a845ee00138060ec/" target="_blank">Meeting Recording →</a>
+              <a class="eng-link" href="https://matrix.to/#/!XZHkqjSDzHymDOfjdF:matrix.org/$sNBUr2DHxX8NUTbbkm1XKJO7UBeu14i_RboiqNo_9g8?via=fedoraproject.org&via=matrix.org&via=fedora.im" target="_blank">Feedback Comment →</a>
+            </div>
+          </div>
+
+          <div class="engagement-item">
+            <p>Organized a meeting to help Farhana debug a Tesseract OCR engine issue. More peers joined and we all ended up learning a lot about Docling OCR together.</p>
+            <div class="engagement-links">
+              <a class="eng-link" href="https://tldv.io/app/meetings/69d7b1fdec1fc30013f001b8/" target="_blank">Meeting Recording →</a>
+              <a class="eng-link" href="https://matrix.to/#/!XZHkqjSDzHymDOfjdF:matrix.org/$yCgp5tqg2quld4ZC4gpqYM78f1V0mo-uYjId_gLjvq4?via=fedoraproject.org&via=matrix.org&via=fedora.im" target="_blank">Feedback Comment →</a>
+            </div>
+          </div>
+
+          <div class="engagement-item">
+            <p>Got involved in a peer meeting to help set up Fedora on WSL — a practical session helping peers get their dev environment running.</p>
+            <div class="engagement-links">
+              <a class="eng-link" href="https://www.youtube.com/watch?v=3rStd2cly44" target="_blank">Meeting Recording →</a>
+            </div>
+          </div>
+
+          <div class="engagement-item">
+            <p>Shared knowledge on RamaLama transport registries in a peer meeting focused on the RamaLama task.</p>
+            <div class="engagement-links">
+              <a class="eng-link" href="https://tldv.io/app/meetings/69da706b1302900013b7404f/" target="_blank">Meeting Recording →</a>
+            </div>
+          </div>
+
+          <div class="engagement-item">
+            <p>Helped peer Happiness in an individual meeting with her RamaLama task — she was really grateful for the support.</p>
+            <div class="engagement-links">
+              <a class="eng-link" href="https://matrix.to/#/!XZHkqjSDzHymDOfjdF:matrix.org/$Oa1vzzf_wHFCiaKcTzOURD_dMJ_YXvDz25ndIEVf36E?via=fedoraproject.org&via=matrix.org&via=fedora.im" target="_blank">Comment →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- HACKMD -->
+        <div class="engagement-subsection">
+          <p class="engagement-sub-title">📝 HackMD Collaboration</p>
+
+          <div class="engagement-item">
+            <p>Collaborated with Farhana to create a HackMD doc for peer review on Task #122, making it easier for peers who did the task to share and review each other's work.</p>
+            <div class="engagement-links">
+              <a class="eng-link" href="https://hackmd.io/_CtCzsdqQQW6zzjZQ_hcqQ" target="_blank">HackMD Doc →</a>
+            </div>
+          </div>
+
+          <div class="engagement-item">
+            <p>Collaborated with Utkarsh to create a HackMD doc for meeting links and discussion posts, keeping the team organized and informed.</p>
+            <div class="engagement-links">
+              <a class="eng-link" href="https://hackmd.io/H8Yff2h-SUWwC7fwgsGcZQ" target="_blank">HackMD Doc →</a>
+            </div>
+          </div>
+
+          <div class="engagement-item">
+            <p>Reviewed peers' tasks on HackMD — providing feedback on Task #122, Task #123, and Task #124.</p>
+            <div class="engagement-links">
+              <a class="eng-link" href="https://hackmd.io/_tu9GJyvSlCo3qe32-KPQ" target="_blank">Task #122 →</a>
+              <a class="eng-link" href="https://hackmd.io/7uvbdzYwTHyrq256R5dukw" target="_blank">Task #123 →</a>
+              <a class="eng-link" href="https://hackmd.io/_CtCzsdqQQW6zzjZQ_hcqQ" target="_blank">Task #124 →</a>
+            </div>
+          </div>
+
+          <div class="engagement-item">
+            <p>Added a section to improve the HackMD formatting guidelines document, helping the whole team produce better-structured docs.</p>
+            <div class="engagement-links">
+              <a class="eng-link" href="https://hackmd.io/OqpUQzmVQcCI2ZzYy2vzNQ" target="_blank">Formatting Guidelines →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PR REVIEWS -->
+        <div class="engagement-subsection">
+          <p class="engagement-sub-title">🔍 Contributions to Peers' Pull Requests</p>
+
+          <div class="engagement-item">
+            <p>Commented on Utkarsh's PR #2594 to help improve the RamaLama documentation quality.</p>
+            <div class="engagement-links">
+              <a class="eng-link" href="https://github.com/containers/ramalama/pull/2594#issuecomment-4187888601" target="_blank">View Comment on PR #2594 →</a>
+            </div>
+          </div>
+
+          <div class="engagement-item">
+            <p>Commented on Ibrahim's PR #2605 (the config reference doc) with feedback on TOML syntax, formatting, and technical accuracy.</p>
+            <div class="engagement-links">
+              <a class="eng-link" href="https://github.com/containers/ramalama/pull/2605#issuecomment-4215389170" target="_blank">View Comment on PR #2605 →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- REFLECTIONS -->
+  <section id="reflections">
+    <div class="section-inner">
+      <p class="section-label">Reflections</p>
+      <h2 class="section-title">What I <span class="accent">Experienced</span></h2>
+      <p class="section-desc">Honest reflections on the challenges I faced and the things I genuinely loved during this journey.</p>
+
+      <div class="major-card">
+        <div class="reflections-grid">
+
+          <!-- Challenges -->
+          <div class="reflection-card challenges">
+            <div class="reflection-icon">😤</div>
+            <h3>What Challenged Me</h3>
+            <ul style="color:var(--muted); font-size:0.9rem; line-height:1.75; padding-left:1.2rem;">
+              <li style="margin-bottom:0.6rem;">Transitioning my entire machine from Windows to Fedora in week one was intimidating — navigating an unfamiliar OS ecosystem from scratch while simultaneously diving into tasks was a real test of adaptability.</li>
+              <li style="margin-bottom:0.6rem;">Setting up a Fedora account profile picture proved unexpectedly tricky — a small thing that turned into a rabbit hole, though it led me to create a video guide helping peers avoid the same frustration.</li>
+              <li style="margin-bottom:0.6rem;">Working with Docling for the first time, especially processing unstructured multilingual scanned PDFs with OCR engines like Tesseract and TesserOCR, threw up several installation and compatibility challenges along the way.</li>
+              <li style="margin-bottom:0.6rem;">Navigating the many Fedora websites, tools, and platforms (FAS, Fedora Discussion, Pagure, Matrix, Mastodon) all at once in the first week felt overwhelming before things started to click into place.</li>
+              <li style="margin-bottom:0.6rem;">Balancing peer collaboration, individual tasks, PR reviews, and my own exploration — all in the same week — required careful prioritisation and energy management.</li>
+            </ul>
+          </div>
+
+          <!-- What I loved -->
+          <div class="reflection-card loved">
+            <div class="reflection-icon">💚</div>
+            <h3>What I Loved</h3>
+            <ul style="color:var(--muted); font-size:0.9rem; line-height:1.75; padding-left:1.2rem;">
+              <li style="margin-bottom:0.6rem;">Getting my very first open-source PR merged — fixing the broken RamaLama docsite logo — was a genuinely proud moment. That feeling of seeing your name in a merged commit is something special.</li>
+              <li style="margin-bottom:0.6rem;">Discovering RamaLama and how effortlessly it runs AI models locally with no configuration. As an AI engineer, watching it handle models I'd previously used in complex setups — with zero fuss — was a revelation.</li>
+              <li style="margin-bottom:0.6rem;">The collaborative spirit of the intern cohort. Every meeting, whether planned or spontaneous, turned into a genuine learning session. When more peers joined the Tesseract debugging call, what started as a one-person problem became a group breakthrough.</li>
+              <li style="margin-bottom:0.6rem;">Writing again. I hadn't posted on my blog or LinkedIn in a while, and this internship gave me the perfect reason to get back into it — sharing knowledge about Fedora, Docling, and RamaLama with a real audience.</li>
+              <li style="margin-bottom:0.6rem;">Becoming part of the Fedora community. Regardless of the outcome of this internship, Fedora has grown on me quickly — and it's a community I genuinely want to remain part of long after this programme ends.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Mercy Njeri Kimaru · Outreachy 2026 · <a href="https://accounts.fedoraproject.org/user/iamnjeri/" target="_blank">@iamnjeri</a> · Fedora Project / RamaLama RAG</p>
+  </footer>
+
+  <script>
+    /* ── Active nav on scroll ── */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav ul a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      });
+    });
+
+    /* ── Typing animation ── */
+    const roles = ['AI/ML Engineer', 'RAG Pipeline Builder', 'Open Source Contributor', 'Outreachy 2026 Applicant'];
+    let ri = 0, ci = 0, deleting = false;
+    const roleEl = document.querySelector('.hero-role');
+    function type() {
+      const word = roles[ri];
+      if (!deleting) {
+        roleEl.firstChild.textContent = word.slice(0, ++ci);
+        if (ci === word.length) { deleting = true; setTimeout(type, 1800); return; }
+      } else {
+        roleEl.firstChild.textContent = word.slice(0, --ci);
+        if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
+      }
+      setTimeout(type, deleting ? 50 : 90);
+    }
+    roleEl.innerHTML = '<span></span><span class="cursor"></span>';
+    setTimeout(type, 1000);
+  </script>
+
+</body>
+</html>
